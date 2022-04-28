@@ -28,7 +28,7 @@ document.getElementById("calendar").innerhtml = htmlCode;
 
 
 /* Functions for creating the monthly table */
-function writeMonthTable(monthNum) {
+function WriteMonthTable(monthNum) {
    /* Start the month table */
    htmlCode += "<table>";
    htmlCode += "<caption>" + monthName[monthNum] + "</caption>";
@@ -60,12 +60,12 @@ function writeMonthTable(monthNum) {
       calendarDay.setDate(dayCount);
       
       /* Start the table row on the first day of the week */
-      if (calendarDay.getDay() = 0) {
+      if (calendarDay.getDay() === 0) {
          htmlCode += "<tr>";
       }
       
       /* Test whether the calendar date is equal to the current date */
-      if ((dayCount = thisDay.getDate()) & (monthNum = thisDay.getMonth())) {
+      if ((dayCount == thisDay.getDate()) && (monthNum == thisDay.getMonth())) {
          htmlCode += "<td id='today'>" + dayCount + "</td>";
       }
       else {
@@ -73,7 +73,7 @@ function writeMonthTable(monthNum) {
       }
       
       /* End the table row on the last day of the week */
-      if (calendarDay.getDay() = 6) {
+      if (calendarDay.getDay() === 6) {
          htmlCode += "</tr>";
       }
    }
@@ -81,8 +81,6 @@ function writeMonthTable(monthNum) {
    
    /* Close the table */
    htmlCode += "</table>"; 
-
-   return htmlCode;
 }
 
 
@@ -95,9 +93,3 @@ function daysInMonth(monthNum) {
    }
    return dayCount[monthNum];
 }
-// if (thisYear % 4 === 0) {
-//    if ((thisYear % 100 != 0) || (thisYear % 400 === 0)) {
-//       dayCount[1] = 29;
-//    }
-// }   
-//}
